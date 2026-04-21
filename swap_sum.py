@@ -11,8 +11,8 @@ def swap_sum(A, B):
         for j in range(len(B)):
             A[i], B[j] = B[j], A[i]
 
-            if sum(A) - sum(B) == 10:
-                return A, B
+            if abs(sum(A) - sum(B)) == 10:
+                return i, j
 
             A[i], B[j] = B[j], A[i]
     return None
