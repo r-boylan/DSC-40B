@@ -7,12 +7,16 @@ def swap_sum(A, B):
 
     """
     # TODO: Implement the swap_sum function
-    for i in range(len(A)):
-        for j in range(len(B)):
-            A[i], B[j] = B[j], A[i]
+    A_copy = A.copy()
+    B_copy = B.copy()
 
-            if abs(sum(A) - sum(B)) == 10:
-                return i, j
+    for i in range(len(A_copy)):
+        for j in range(len(B_copy)):
+            A_copy[i], B_copy[j] = B_copy[j], A_copy[i]
 
-            A[i], B[j] = B[j], A[i]
+            if abs(sum(A_copy) - sum(B_copy)) == 10:
+                A_copy[i], B_copy[j] = B_copy[j], A_copy[i]
+                return A_copy, B_copy
+            
+            A_copy[i], B_copy[j] = B_copy[j], A_copy[i]
     return None
