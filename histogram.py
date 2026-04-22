@@ -8,7 +8,7 @@ def histogram(points, bins):
     # TODO: Implement the histogram function
     binned = {}
     for bin in bins:
-        bucket = [point for point in points if point < bin]
+        bucket = [point for point in points if point < bin[1]]
         binned[bin] = len(bucket)
         points = points[len(bucket):]
     return binned
