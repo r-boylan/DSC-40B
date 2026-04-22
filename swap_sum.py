@@ -13,10 +13,10 @@ def swap_sum(A, B):
     for i in range(len(A_copy)):
         for j in range(len(B_copy)):
             A_copy[i], B_copy[j] = B_copy[j], A_copy[i]
+            sum_of_A_after_swapping = sum(A_copy) + B_copy[j] - A_copy[i]
+            sum_of_B_after_swapping = sum(B_copy) + B_copy[j] - A_copy[i]
 
-            if abs(sum(A_copy) - sum(B_copy)) == 10:
-                A_copy[i], B_copy[j] = B_copy[j], A_copy[i]
-                return A_copy, B_copy
-            
-            A_copy[i], B_copy[j] = B_copy[j], A_copy[i]
+            if abs(sum_of_A_after_swapping - sum_of_B_after_swapping) == 10:
+                return A, B
+
     return None
