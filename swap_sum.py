@@ -17,6 +17,8 @@ def swap_sum(A, B):
             sum_of_B_after_swapping = sum(B_copy) + B_copy[j] - A_copy[i]
 
             if abs(sum_of_A_after_swapping - sum_of_B_after_swapping) == 10:
-                return A, B
+                return (i, j)
+            
+            A_copy[i], B_copy[j] = B_copy[j], A_copy[i]
 
     return None
