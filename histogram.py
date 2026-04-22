@@ -11,4 +11,4 @@ def histogram(points, bins):
         bucket = [point for point in points if point < bin[1]]
         binned[bin] = len(bucket)
         points = points[len(bucket):]
-    return binned
+    return list[binned.values()]
