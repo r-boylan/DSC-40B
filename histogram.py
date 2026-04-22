@@ -6,5 +6,9 @@ def histogram(points, bins):
 
     """
     # TODO: Implement the histogram function
-    
-    return None
+    binned = {}
+    for bin in bins:
+        bucket = [point for point in points if point < bin]
+        binned[bin] = len(bucket)
+        points = points[len(bucket):]
+    return binned
