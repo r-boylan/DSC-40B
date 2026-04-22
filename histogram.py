@@ -6,9 +6,15 @@ def histogram(points, bins):
 
     """
     # TODO: Implement the histogram function
-    binned = {}
-    for bin in bins:
-        bucket = [point for point in points if point < bin[1]]
-        binned[bin] = len(bucket)
-        points = points[len(bucket):]
-    return list[binned.values()]
+    result = []
+    n = len(points)
+    i = 0
+    for left, right in bins:
+        count = 0
+        width = right - left
+        while i < n and points[i] < right:
+            if points[i] >= left:
+                count += 1
+            i += 1
+        result.append(count / (n * width))
+    return result
